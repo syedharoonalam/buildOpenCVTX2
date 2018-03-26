@@ -27,12 +27,7 @@ sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 
 git clone https://github.com/opencv/opencv.git
 cd opencv
-git checkout -b v3.3.0 3.3.0
-# This is for the test data
-cd $HOME
-git clone https://github.com/opencv/opencv_extra.git
-cd opencv_extra
-git checkout -b v3.3.0 3.3.0
+git checkout -b v3.4.0 3.4.0
 
 cd $HOME/opencv
 mkdir build
@@ -47,7 +42,7 @@ cmake \
     -DBUILD_JPEG=OFF \
     -DBUILD_JASPER=OFF \
     -DBUILD_ZLIB=OFF \
-    -DBUILD_EXAMPLES=ON \
+    -DBUILD_EXAMPLES=OFF \
     -DBUILD_opencv_java=OFF \
     -DBUILD_opencv_python2=ON \
     -DBUILD_opencv_python3=OFF \
@@ -63,11 +58,11 @@ cmake \
     -DWITH_TBB=ON \
     -DWITH_1394=OFF \
     -DWITH_OPENEXR=OFF \
-    -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-8.0 \
+    -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-9.0 \
     -DCUDA_ARCH_BIN=6.2 \
     -DCUDA_ARCH_PTX="" \
-    -DINSTALL_C_EXAMPLES=ON \
-    -DINSTALL_TESTS=ON \
+    -DINSTALL_C_EXAMPLES=OFF \
+    -DINSTALL_TESTS=OFF \
     -DOPENCV_TEST_DATA_PATH=../opencv_extra/testdata \
     ../
 
