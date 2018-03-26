@@ -1,9 +1,9 @@
 # buildOpenCVTX2
 Build and install OpenCV for the NVIDIA Jetson TX2
 
-These scripts build OpenCV version 3.3 for the NVIDIA Jetson TX2 Development Kit.
+These scripts build OpenCV version 3.4 for the NVIDIA Jetson TX2 Development Kit.
 
-JetPack gives the option of installing OpenCV4Tegra (OpenCV 2.4) with accelerated CPU functions. OpenCV4Tegra is now deprecated. Here is a recipe for building OpenCV from source.
+JetPack 3.2 gives the option of installing OpenCV 3.3 with accelerated CPU functions. OpenCV in jetpack doesnt provide GPU modules. Here is a recipe for building OpenCV from source.
 
 OpenCV is a rich environment which can be configured in many different ways. You should configure OpenCV for your needs, by modifying the build file "buildOpenCV.sh". Note that selecting different options in OpenCV may also have additional library requirements which are not included in these scripts.
 
@@ -26,7 +26,7 @@ $ cd $HOME/opencv/build
 $ sudo make install
 
 ## Notes
-There may be issues if have both OpenCV4Tegra and a regular OpenCV build installed at the same time. Most people do not install OpenCV4Tegra on their machine if using the OpenCV build.
+There may be issues if have both OpenCV provided with Jetson and a regular OpenCV build installed at the same time.
 
 The Jetson is an aarch64 machine, which means that the OpenCV configuration variable ENABLE_NEON is ignored. The compiler includes NEON support for all machines with aarch64 architecture.
 
@@ -41,6 +41,12 @@ http://docs.opencv.org/3.2.0/d6/d15/tutorial_building_tegra_cuda.html
 https://devtalk.nvidia.com/default/topic/965134/opencv-3-1-compilation-on-tx1-lets-collect-the-quot-definitive-quot-cmake-settings-/?offset=3
 
 ## Release Notes
+March 2018
+* L4T 28.2
+* OpenCV 3.4
+* GStreamer support added to build script
+* GStreamer OpenCV examples using the Jetson onboard camera 
+
 September 2017
 * L4T 28.1
 * OpenCV 3.3
